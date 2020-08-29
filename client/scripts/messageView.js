@@ -1,12 +1,11 @@
 var MessageView = {
 
-  render: _.template(`
-      <!--
-      <div class="chat">
-        <div class="username"></div>
-        <div></div>
-      </div>
-      -->
-    `)
-
+  render: function(obj) {
+    return `
+    <div class="chat">
+        <div class="username"><p>${obj.username}</p></div>
+        <div><p>${obj.text}</p></div>
+        <div><p>${obj.roomname}</p></div>
+    </div>`;
+  }
 };

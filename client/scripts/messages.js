@@ -1,1 +1,3 @@
-var Messages = [];
+var Messages = {
+  storage: []
+};

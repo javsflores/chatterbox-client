@@ -142,5 +142,6 @@ button:hover {
 }
 
 .friend {
-    color: red;
+    color: white;
+    background-color: steelblue;
 }

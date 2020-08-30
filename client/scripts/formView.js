@@ -11,19 +11,23 @@ var FormView = {
     // Stop the browser from submitting the form
     // console.log('this is event:', event)
     event.preventDefault(); // ask what is happening
+    var selectedRoom;
+    if ($('#newRoomName').val() !== '') {
+      selectedRoom = $('#newRoomName').val();
+    } else {
+      selectedRoom = $('#rooms select option:selected').val();
+    }
 
     var messageObj = {
       username: App.username,
       text: event.currentTarget['0'].value,
-      roomname: 'FILL_ME_IN'
+      roomname: selectedRoom
     };
 
-    console.log(messageObj);
     Parse.create(messageObj);
     console.log(App.initialize);
-    setTimeout(function() { location.reload(); }, 250);
+    setTimeout(function() { location.reload(); }, 500);
     // location.reload can take an input?
-    console.log('click');
   },
 
   setStatus: function(active) {

@@ -5,7 +5,6 @@ var App = {
   username: 'anonymous',
 
   initialize: function() {
-    console.log('app.initialize');
     App.username = window.location.search.substr(10);
     FormView.initialize();
     RoomsView.initialize();
@@ -15,6 +14,9 @@ var App = {
     App.startSpinner();
     App.fetch(App.stopSpinner);
 
+    $('#refresh').on('click', function() {
+      location.reload();
+    });
 
     //setInterval(function() { location.reload(); }, 10000);
 
@@ -25,7 +27,10 @@ var App = {
     Parse.readAll((data) => {
       // examine the response from the server request:
       Messages.storage = data.results;
+      console.log(Messages.storage);
       MessagesView.render();
+      RoomsView.render();
+      Friends.render();
       callback();
     });
   },
